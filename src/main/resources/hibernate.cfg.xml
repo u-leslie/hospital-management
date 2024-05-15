@@ -1,18 +1,22 @@
-<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hospitaldb</property>
         <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password"></property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
-        <property name="show_sql">true</property>
-        <property name="format_sql">true</property>
-        <mapping class="com.hospital.model.Person"/>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Mappings -->
         <mapping class="com.hospital.model.Patient"/>
+        <mapping class="com.hospital.model.Person"/>
         <mapping class="com.hospital.model.Doctor"/>
+        <mapping class="com.hospital.model.MedicalRecord"/>
         <mapping class="com.hospital.model.Department"/>
         <mapping class="com.hospital.model.Appointment"/>
-        <mapping class="com.hospital.model.MedicalRecord"/>
     </session-factory>
 </hibernate-configuration>

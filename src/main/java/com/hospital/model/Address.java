@@ -1,7 +1,7 @@
 // src/main/java/com/hospital/model/Address.java
 package com.hospital.model;
 
-import javax.persistence.Embeddable;
+import jakarta.persistence.Embeddable;
 
 @Embeddable
 public class Address {

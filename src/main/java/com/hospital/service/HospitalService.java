@@ -1,8 +1,10 @@
 package com.hospital.service;
+
 import com.hospital.model.Patient;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+
 import java.util.List;
 
 public class HospitalService {
@@ -12,10 +14,10 @@ public class HospitalService {
         sessionFactory = new Configuration().configure().buildSessionFactory();
     }
 
-    public void createPatient(Patient patient) {
+    public void createOrUpdatePatient(Patient patient) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        session.save(patient);
+        session.persist(patient);
         session.getTransaction().commit();
         session.close();
     }
@@ -27,20 +29,12 @@ public class HospitalService {
         return patient;
     }
 
-    public void updatePatient(Patient patient) {
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        session.update(patient);
-        session.getTransaction().commit();
-        session.close();
-    }
-
     public void deletePatient(Long id) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         Patient patient = session.get(Patient.class, id);
         if (patient != null) {
-            session.delete(patient);
+            session.remove(patient);
         }
         session.getTransaction().commit();
         session.close();

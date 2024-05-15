@@ -1,10 +1,7 @@
 // src/main/java/com/hospital/model/Doctor.java
 package com.hospital.model;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "doctors")

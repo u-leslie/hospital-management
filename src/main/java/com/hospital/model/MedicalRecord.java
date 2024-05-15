@@ -1,7 +1,7 @@
 // src/main/java/com/hospital/model/MedicalRecord.java
 package com.hospital.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "medical_records")
