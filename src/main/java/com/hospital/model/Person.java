@@ -1,5 +1,4 @@
 package com.hospital.model;
-
 import javax.persistence.*;
 
 @Entity

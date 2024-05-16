@@ -1,11 +1,8 @@
-// src/main/java/com/hospital/service/HospitalService.java
 package com.hospital.service;
-
 import com.hospital.model.Patient;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-
 import java.util.List;
 
 public class HospitalService {

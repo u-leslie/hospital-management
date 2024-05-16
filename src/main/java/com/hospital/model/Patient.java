@@ -1,6 +1,4 @@
-// src/main/java/com/hospital/model/Patient.java
 package com.hospital.model;
-
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
