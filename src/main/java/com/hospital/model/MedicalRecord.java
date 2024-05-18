@@ -1,4 +1,3 @@
-// src/main/java/com/hospital/model/MedicalRecord.java
 package com.hospital.model;
 
 import jakarta.persistence.*;
@@ -9,13 +8,14 @@ public class MedicalRecord {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String diagnosis;
-    private String treatment;
 
-    @OneToOne
+    private String details;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "patient_id")
     private Patient patient;
 
+    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -24,21 +24,19 @@ public class MedicalRecord {
         this.id = id;
     }
 
-    public String getDiagnosis() {
-        return diagnosis;
+    public String getDetails() {
+        return details;
     }
 
-    public void setDiagnosis(String diagnosis) {
-        this.diagnosis = diagnosis;
+    public void setDetails(String details) {
+        this.details = details;
     }
 
-    public String getTreatment() {
-        return treatment;
+    public Patient getPatient() {
+        return patient;
     }
 
-    public void setTreatment(String treatment) {
-        this.treatment = treatment;
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
-
-    // Getters and Setters
 }

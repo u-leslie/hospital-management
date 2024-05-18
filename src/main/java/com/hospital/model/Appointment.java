@@ -1,7 +1,6 @@
 package com.hospital.model;
 
 import jakarta.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "appointments")
@@ -9,16 +8,14 @@ public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Date appointmentDate;
 
-    @ManyToOne
+    private String date;
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "patient_id")
     private Patient patient;
 
-    @ManyToOne
-    @JoinColumn(name = "doctor_id")
-    private Doctor doctor;
-
+    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -27,13 +24,19 @@ public class Appointment {
         this.id = id;
     }
 
-    public Date getAppointmentDate() {
-        return appointmentDate;
+    public String getDate() {
+        return date;
     }
 
-    public void setAppointmentDate(Date appointmentDate) {
-        this.appointmentDate = appointmentDate;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    // Getters and Setters
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
 }

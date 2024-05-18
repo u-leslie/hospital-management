@@ -1,6 +1,7 @@
 package com.hospital.service;
 
 import com.hospital.model.Patient;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -25,6 +26,8 @@ public class HospitalService {
     public Patient getPatient(Long id) {
         Session session = sessionFactory.openSession();
         Patient patient = session.get(Patient.class, id);
+        Hibernate.initialize(patient.getMedicalRecords());
+        Hibernate.initialize(patient.getAppointments());
         session.close();
         return patient;
     }
