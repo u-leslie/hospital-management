@@ -1,4 +1,3 @@
-// src/main/java/com/hospital/model/Appointment.java
 package com.hospital.model;
 
 import jakarta.persistence.*;
